@@ -22,7 +22,7 @@
                     </div>
                     <div class="box-check">
                         <input type="checkbox" name="" id="">
-                        <label for=""></label>
+                        <label class="type1" for=""></label>
                     </div>
                 </li>
 
@@ -52,7 +52,7 @@
                     </div>
                     <div class="box-check">
                         <input type="checkbox" name="" id="">
-                        <label for=""></label>
+                        <label class="type1" for=""></label>
                     </div>
                 </li>
 
@@ -82,7 +82,7 @@
                     </div>
                     <div class="box-check">
                         <input type="checkbox" name="" id="">
-                        <label for=""></label>
+                        <label class="type1" for=""></label>
                     </div>
                 </li>
 
@@ -112,7 +112,7 @@
                     </div>
                     <div class="box-check">
                         <input type="checkbox" name="" id="">
-                        <label for=""></label>
+                        <label class="type1" for=""></label>
                     </div>
                 </li>
 
@@ -142,7 +142,7 @@
                     </div>
                     <div class="box-check">
                         <input type="checkbox" name="" id="">
-                        <label for=""></label>
+                        <label class="type1" for=""></label>
                     </div>
                 </li>
 
@@ -169,7 +169,7 @@
                     </div>
                     <div class="box-check">
                         <input type="checkbox" name="" id="">
-                        <label for=""></label>
+                        <label class="type1" for=""></label>
                     </div>
                 </li>
 

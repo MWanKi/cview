@@ -35,7 +35,7 @@
 			</a>
 		</li>
 		<li class="li-nav li-calendar">
-			<a href="#">
+			<a href="calendar.php">
 				캘린더
 				<span class="num-count"></span>
 			</a>
