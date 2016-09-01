@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="css/common.css">
 	<script src="js/jquery.3.1.0.js"></script>
+	<script src="js/common.js"></script>
 </head>
 <body>
 	<div class="wrap-content">
@@ -25,7 +26,7 @@
 		<!-- header -->
 
 		<!-- sidebar -->
-		<div class="wrap-sidebar">
+		<div class="wrap-sidebar easing">
 			<div class="box-top">
 				<div class="box-profile">
 					<img src="/images/profile.png" alt="">
@@ -80,4 +81,5 @@
 				</li>
 			</ul>
 		</div>
+		<span class="cover"></span>
 		<!-- sidebar -->
