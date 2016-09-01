@@ -83,3 +83,17 @@
 		</div>
 		<span class="cover"></span>
 		<!-- sidebar -->
+
+		<!-- shortcut -->
+		<div class="box-shortcut">
+			<ul>
+				<li class="li-on li-home"><a href="#">홈</a></li>
+				<li class="li-calendar"><a href="#">캘린더</a></li>
+				<li class="li-ai"><a href="#">AI함</a></li>
+				<li class="li-more"><a href="#">더보기</a></li>
+			</ul>
+		</div>
+		<!-- shortcut -->
+
+		<!-- content -->
+		<div class="box-content">
