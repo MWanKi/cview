@@ -77,8 +77,9 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 
 .ul-task .li-taskdata {position:relative; height:125px; padding:40px 0 35px; border-bottom:1px solid #dcdcdc;}
 .ul-task .li-taskdata .box-txt {float: right; width:604px;}
+.ul-task .li-taskdata .box-txt a {display:block;}
 .ul-task .li-taskdata .box-txt .tit-task {font-size:30px; color:#000;}
-.ul-task .li-taskdata .box-txt .ul-data {padding:30px 0 0;}
+.ul-task .li-taskdata .box-txt .ul-data {padding:30px 0 0; overflow: hidden;}
 .ul-task .li-taskdata .box-txt .ul-data li {float: left; width:222px; height:24px; margin:0 40px 25px 0; padding:0 0 0 40px; line-height:24px; color:#000;}
 .ul-task .li-taskdata .box-txt .ul-data .li-date {background:url('../images/task-data1.png') 0 0 no-repeat;}
 .ul-task .li-taskdata .box-txt .ul-data .li-time {background:url('../images/task-data2.png') 0 0 no-repeat;}
@@ -88,7 +89,7 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 .ul-task .li-taskdata .box-check label {width:48px; height:48px; display:block; background:url('../images/check-off.png') center center no-repeat;}
 .ul-task .li-taskdata .box-check input[type=checkbox] {display:none;}
 
-
+.btn-task-more {display:block; height:96px; background:url('../images/task-more.png') center center no-repeat; text-indent:-9999px;}
 
 
 

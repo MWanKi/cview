@@ -1,3 +1,6 @@
+<?php 
+    $page_name = '오늘함';
+?>
 <?php include('header.php') ?>
     <div class="box-mainlist">
         <div class="box-data">
