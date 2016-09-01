@@ -8,11 +8,9 @@
 	<link rel="stylesheet" href="css/notosanskr.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
-	<link rel="stylesheet" href="css/pickmeup.css">
 	<link rel="stylesheet" href="css/common.css">
 	<script src="js/jquery.3.1.0.js"></script>
 	<script src="js/jquery.bxslider.min.js"></script>
-	<script src="js/jquery.pickmeup.min.js"></script>
 	<script src="js/common.js"></script>
 </head>
 <body>

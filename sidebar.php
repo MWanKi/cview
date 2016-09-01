@@ -17,7 +17,7 @@
 			</a>
 		</li>
 		<li class="li-nav li-today">
-			<a href="#">
+			<a href="index.php">
 				오늘
 				<span class="num-count">10</span>
 			</a>

@@ -64,17 +64,17 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 .box-shortcut ul .li-calendar a {background:url('../images/short2.png') center 20px no-repeat;}
 .box-shortcut ul .li-ai a {background:url('../images/short3.png') center 20px no-repeat;}
 .box-shortcut ul .li-more a {background:url('../images/short4.png') center 40px no-repeat;}
-
 .box-content {height:1054px; overflow: scroll;}
-
 .cover {z-index:9998; display:none; position:absolute; width:100%; height:100%; left:0; top:0; background:rgba(0,0,0,0.3);}
-
-
-
-.head-data {height:48px; padding:0 32px; line-height:48px; font-size:24px; background:#e1e1e1; border-bottom:1px solid #dcdcdc}
-
-
-.ul-task .li-taskdata {position:relative; height:125px; padding:40px 0 35px; border-bottom:1px solid #dcdcdc;}
+.head-data {height:48px; padding:0 32px; line-height:52px; font-size:24px; background:#e1e1e1; border-bottom:1px solid #dcdcdc}
+.ul-task {height:1054px; overflow: scroll;}
+.ul-task .li-taskdata {position:relative; height:125px; padding:40px 0 35px; border-bottom:2px solid #dcdcdc;}
+.ul-task .li-taskdata.on {
+	-webkit-transform:translateX(720px);
+	-ms-transform:translateX(720px);
+	-o-transform:translateX(720px);
+	transform:translateX(720px);
+}
 .ul-task .li-taskdata .box-txt {float: right; width:604px;}
 .ul-task .li-taskdata .box-txt a {display:block;}
 .ul-task .li-taskdata .box-txt .tit-task {font-size:30px; color:#000;}
@@ -85,20 +85,13 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 .ul-task .li-taskdata .box-txt .ul-data .li-place {background:url('../images/task-data3.png') 0 0 no-repeat;}
 .ul-task .li-taskdata .box-txt .ul-data .li-member {background:url('../images/task-data4.png') 0 4px no-repeat;}
 .ul-task .li-taskdata .box-check {position:absolute; top:29px; left:32px;}
-.ul-task .li-taskdata .box-check label {width:48px; height:48px; display:block;}
+.ul-task .li-taskdata .box-check label {width:48px; height:48px; display:block; cursor: pointer;}
 .ul-task .li-taskdata .box-check label.type1 {background:url('../images/check-off.png') center center no-repeat;}
 .ul-task .li-taskdata .box-check label.type2 {background:url('../images/check-off-v2.png') center center no-repeat;}
 .ul-task .li-taskdata .box-check input[type=checkbox] {display:none;}
 .ul-task .li-taskdata .box-check input[type=checkbox]:checked + label.type2 {background:url('../images/check-on-v2.png') center center no-repeat;}
-
 .btn-task-more {display:block; height:96px; background:url('../images/task-more.png') center center no-repeat; text-indent:-9999px;}
-
-#calendar {height:527px;}
-#calendar li {height:527px;}
-.tbl-day {width:100%;}
-.tbl-day td {text-align:center; font-size:24px;}
-
-.wrap-ai {z-index:1; position:absolute; top:0; left:720px; width:100%; height:1280px; background:#fff;}
+.wrap-ai {z-index:9999; position:absolute; top:0; left:720px; width:100%; height:1280px; background:#fff;}
 .wrap-ai.on {
 	box-shadow:0 0 100px rgba(0,0,0,0.7);
 	-webkit-transform:translateX(-720px);
@@ -106,16 +99,20 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 	-o-transform:translateX(-720px);
 	transform:translateX(-720px);
 }
-.wrap-ai h2 {font-size:42px; text-align:center; height:113px; line-height:113px; color:#fff; background:#ff961a;}
-
-
-.box-ai-shortcut {position:absolute; left:0; bottom:0; width:100%; height:113px; background:#fff; border-top:1px solid #dcdcdc;}
+.wrap-ai h2 {font-size:42px; text-align:center; height:113px; line-height:113px; color:#fff; background:#ff961a; box-shadow:0 0 10px rgba(0,0,0,0.5); }
+.box-ai-shortcut {position:absolute; left:0; bottom:0; width:100%; height:113px; background:#fff; border-top:1px solid #dcdcdc; box-shadow:0 0 10px rgba(0,0,0,0.5); }
 .box-ai-shortcut ul {overflow: hidden;}
 .box-ai-shortcut ul li {float: left; width:50%; height:100%;}
 .box-ai-shortcut ul li a {display:block; padding:78px 0 11px; font-size:24px; text-align:center; font-weight:300; color:#333;}
-.box-ai-shortcut ul .li-task-delete a {border-right:1px solid #dcdcdc; background:url('../images/delete.png') center 20px no-repeat;}
+.box-ai-shortcut ul .li-task-delete a {border-right:2px solid #dcdcdc; background:url('../images/delete.png') center 20px no-repeat;}
 .box-ai-shortcut ul .li-task-confirm a {color:#ff601a; background:url('../images/confirm.png') center 20px no-repeat;}
-.box-notice {position:absolute; left:0; bottom:114px; display:none; width:100%; height:96px; background:#4b4b4a;}
+.box-notice {position:absolute; left:720px; bottom:114px; width:100%; height:96px; background:#4b4b4a;}
+.box-notice.on {
+	-webkit-transform:translateX(-720px);
+	-ms-transform:translateX(-720px);
+	-o-transform:translateX(-720px);
+	transform:translateX(-720px);
+}
 .box-notice .txt-notice {padding:0 32px; font-size:30px; color:rgb(229,229,229); font-weight:200; line-height:96px;}
 .box-notice .btn-rollback {font-size:30px; color:rgb(215,117,86); position:absolute; right:32px; top:32px;}
 .btn-close-ai {position:absolute; top:40px; right:32px; display:block; width:36px; height:36px; background:url('../images/close.png') center center no-repeat; text-indent:-9999px;}
