@@ -2,7 +2,7 @@
     <h2>AI함</h2>
 
     <div class="box-data">
-        <ul class="ul-task">
+        <ul class="ul-task ul-task-ai">
             <?php for ($i=0; $i < 8; $i++) { ?>
             
             <li class="li-taskdata easing">

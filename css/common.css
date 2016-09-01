@@ -67,7 +67,7 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 .box-content {height:1054px; overflow: scroll;}
 .cover {z-index:9998; display:none; position:absolute; width:100%; height:100%; left:0; top:0; background:rgba(0,0,0,0.3);}
 .head-data {height:48px; padding:0 32px; line-height:52px; font-size:24px; background:#e1e1e1; border-bottom:1px solid #dcdcdc}
-.ul-task {height:1054px; overflow: scroll;}
+.ul-task-ai {height:1054px; overflow: scroll;}
 .ul-task .li-taskdata {position:relative; height:125px; padding:40px 0 35px; border-bottom:2px solid #dcdcdc;}
 .ul-task .li-taskdata.on {
 	-webkit-transform:translateX(720px);

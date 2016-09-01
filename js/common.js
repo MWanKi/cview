@@ -25,19 +25,29 @@ $(document).on("click", ".btn-close-ai", function(){
 
 $(document).on("click", ".li-task-delete", function(){
 
+	var $this = $(this);
 	var toDelete = $('.wrap-ai input[type=checkbox]:checked');
 	var deletedTaskCount = toDelete.length;
 
-	if (deletedTaskCount) {
-		$('.wrap-ai .deleted-task').remove();
+	if (deletedTaskCount && !$this.hasClass('active')) {
 		
 		var toDelete = $('.wrap-ai input[type=checkbox]:checked');
-		var deletedTaskCount = toDelete.length;
+		var newDeletedTaskCount = toDelete.length;
 		var deletedTask = toDelete.closest('.li-taskdata');
 
+		$this.addClass('active');
+
+		if (newDeletedTaskCount != deletedTaskCount) {
+			$('.wrap-ai .deleted-task').remove();	
+		}
+
+		setTimeout(function(){
+			$this.removeClass('active');
+		},400);
+
 		deletedTask.removeClass('easing').slideUp(300).addClass('deleted-task');
-		$('.wrap-ai .txt-notice .count').text(deletedTaskCount);
-		$('.wrap-ai .box-notice').addClass('on');
+		$('.wrap-ai .txt-notice .count').text(newDeletedTaskCount);
+		$('.wrap-ai .box-notice').addClass('on');			
 
 		$('.wrap-ai .btn-rollback').click(function(){
 			deletedTask.slideDown(300).removeClass('deleted-task');
