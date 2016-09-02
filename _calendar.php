@@ -20,10 +20,15 @@ function showCalendar ($year, $month, $totalDays) {
 
     echo ("<table class='calendar'><tr>");
 
-    $d = mktime(0,0,0, date("m"), 1, date("Y")); //이번달 1일
-    $prev_month = strtotime("-1 month", $d); //한달전
+    // $d = mktime(0,0,0, date("m"), 1, date("Y")); //이번달 1일
+    // $prev_month = strtotime("-1 month", $d); //한달전
     // echo date("Y-m-01", $prev_month ); //지난달 1일
     // echo date("t", $prev_month ); //지난달 말일
+
+    $nowmonth_lastday = date("t"); 
+    $lastday = date("t", mktime(0,0,0, $month, 0, $year));
+    // echo $lastday;
+    // echo date("d", mktime(0, 0, 0, intval(date('m')), 0, intval(date('Y'))  ));
 
 $col = 0; 
 $tr = 1;
@@ -31,7 +36,8 @@ $td = 0;
 // for 구문으로 해당 월의 첫번째 요일이 무슨 요일인지를 확인   
 
 for ($i = 0; $i < $firstDay; $i++) { 
-    echo ("<td class='not-current'><span>".($i-$firstDay+date("t", $prev_month)+1)."</span></td>"); 
+    echo ("<td class='not-current'><span>".($i-$firstDay+$lastday+1)."</span></td>"); 
+    // echo ("<td class='not-current'><span>".($i-$firstDay+date("t", $prev_month)+1)."</span></td>"); 
     $col++; 
     $td++; 
 } 
@@ -50,7 +56,7 @@ for ($j = 1; $j <= $totalDays; $j++) {
             $col = 0; 
         }
 
-        if ($j == date('d')) {
+        if ($j == date('d') && $month == date('m')) {
             echo "<td class='today'> <span>$j</span> </td>"; 
             $col++; 
             $td++; 

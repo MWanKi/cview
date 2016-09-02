@@ -66,7 +66,7 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 .box-shortcut ul .li-more a {background:url('../images/short4.png') center 40px no-repeat;}
 .box-content {height:1054px; overflow: scroll;}
 .cover {z-index:9998; display:none; position:absolute; width:100%; height:100%; left:0; top:0; background:rgba(0,0,0,0.3);}
-.head-data {height:48px; padding:0 32px; line-height:52px; font-size:24px; background:#e1e1e1; border-bottom:1px solid #dcdcdc}
+.head-data {position:relative; height:48px; padding:0 32px; line-height:52px; font-size:24px; background:#e1e1e1; border-bottom:1px solid #dcdcdc}
 .head-data table {width:100%;}
 .head-data table td {text-align:center;}
 .ul-task-ai {height:1054px; overflow: scroll;}
@@ -127,3 +127,4 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 #calendar li table td.today span {width:80px; height:80px; line-height:80px; display:inline-block; border-radius:50%; background:#ededed;}
 #calendar li table td.not-current span {color:#cdcdcd;}
 
+.btn-trans-week {z-index:1; position:absolute; top:-20px; left:50%; display:block; width:40px; height:40px; margin:0 0 0 -20px; background:url('../images/trans-week.png') center center no-repeat;}

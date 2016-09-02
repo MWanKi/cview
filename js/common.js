@@ -90,21 +90,74 @@ $(document).on("click", ".li-task-confirm", function(){
 });
 
 $(function(){
+	var i = 1;
+	var j = 0;
+	var i2 = 1;
+	var j2 = 0;	
 	var _date = new Date();
 	var _year = _date.getFullYear();
 	var _month = _date.getMonth()+1;
 
-	console.log(_year);
-	console.log(_month);
+	function calendarSlider(start) {
+		var slider = $('#calendar');
 
-	$('#calendar').bxSlider({
-		pager:false,
-		startSlide:1,
-		onSlideAfter: function(currentIndex) {
-			$('.wrap-header h2').text(currentIndex.data('month')+'월');
+		slider.bxSlider({
+			pager:false,
+			startSlide:start,
+			onSlideAfter: function(currentIndex, oldIndex, newIndex) {
+				$('.wrap-header h2').text(currentIndex.data('month')+'월');
+				
+				var length = slider.find('li').length - 3;
 
-		}
-	});
+				if (newIndex > oldIndex) {
+					if (newIndex == length) {
+						// 다음달 불러오기
+						i++;
+
+						$.ajax({
+							type: 'get',
+							url: '_calendar.php',
+							data: {
+								year: _year,
+								month: _month+i
+							}
+						}).done(function (data){
+							
+							if ((_month+i-1)%12 == 0) j++;
+
+							slider.append('<li class="new"></li>').find('.new').attr('data-month',(_month+i) - (12*j)).html(data).removeClass('new');
+							slider.destroySlider();
+							calendarSlider(length);
+						});
+					}
+				} else {
+					if (newIndex == 0) {
+						// 지난달 불러오기	
+						i2++;
+
+						$.ajax({
+							type: 'get',
+							url: '_calendar.php',
+							data: {
+								year: _year,
+								month: _month-i2
+							}
+						}).done(function (data){
+							
+							if ((_month-i2)%12 == 0) j2++;
+
+							slider.prepend('<li class="new"></li>').find('.new').attr('data-month',(_month-i2)+(12*j2)).html(data).removeClass('new');
+							slider.destroySlider();
+							calendarSlider(1);
+						});
+					}
+				}
+
+			}
+		});
+	}
+	
+	calendarSlider(1);
 
 	$.ajax({
 		type: 'get',
@@ -115,6 +168,7 @@ $(function(){
 		}
 	}).done(function (data){
 		$('#calendar .li-current').html(data).removeClass('li-current').attr('data-month',_month);
+		$('.wrap-header h2').text(_month+'월');
 	});
 
 	$.ajax({
