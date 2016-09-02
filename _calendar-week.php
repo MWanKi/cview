@@ -1,96 +1,32 @@
 <?php
 
-// 해당 연, 월의 일수를 계산한다. t -> 월의 총일수 
+$year = isset($_GET['year']) ? $_GET['year'] : date('Y'); 
+$month = isset($_GET['month']) ? $_GET['month'] : date('m'); 
+$day = isset($_GET['day']) ? $_GET['day'] : date('d'); 
 
-function getTotalDays ($month, $year) { 
-        $date = date ("t",mktime(0,0,1,$month,1,$year)); 
-        return $date; 
-} 
+$w = date('w',mktime(0,0,0,$month,$day,$year)); 
+$m = $day-($w+7)%7;
 
-function showCalendar ($year, $month, $totalDays) { 
+$data = '<li class="li-week add" data-month='.(int)date("m",strtotime($day-date('d')." day")).'>';
+$data .= '  <table class="calendar">';
+$data .= '      <tr>';
 
-    $firstDay = date ("w", mktime(0,0,0,$month,1,$year)); 
+for ($i=0; $i < 7; $i++) { 
+    $data_day = (int)date('d',mktime(0,0,0,$month,$m+$i,$year));
 
-    echo ("<li>");
-    echo ("<table class='calendar'><tr>");
-
-    $nowmonth_lastday = date("t"); 
-    $lastday = date("t", mktime(0,0,0, $month, 0, $year));
-
-    $col = 0; 
-    $tr = 1;
-    $td = 0;
-    // for 구문으로 해당 월의 첫번째 요일이 무슨 요일인지를 확인   
-
-for ($i = 0; $i < $firstDay; $i++) { 
-    echo ("<td class='not-current'><span>".($i-$firstDay+$lastday+1)."</span></td>"); 
-    $col++; 
-    $td++; 
-} 
-
-
-for ($j = 1; $j <= $totalDays; $j++) { 
-
-    if ($td > 0 && $td%7 == 0) {
-        echo ("</tr></table></li><li><table class='calendar'><tr>");
-    }
-
-    if ($col == 7) { 
-        echo ("</tr>"); 
-
-        if ($j != $totalDays) { 
-            echo ("<tr>"); 
-            $tr++;
-        } 
-        $col = 0; 
-    }
-
-    if ($j == date('d') && $month == date('m')) {
-        echo "<td class='today'> <span>$j</span> </td>"; 
-        $col++; 
-        $td++; 
+    // 현재달과 지난달 구분하기
+    if ($month == date('m') && $data_day == date('d')) {
+        $data .= "  <td class='today'><span>$data_day</span></td>";
     } else {
-        echo "<td> <span>$j</span> </td>"; 
-        $col++; 
-        $td++;     
+        $data .= "  <td><span>$data_day</span></td>";
     }
-        
-} 
-
-for ($next_day = 1; $next_day < 43-$td; $next_day++) { 
-
-    if ($col == 7) { 
-        echo ("</tr>"); 
-
-        if ($next_day != $totalDays) { 
-            echo ("<tr>"); 
-            $tr++;
-        } 
-        $col = 0; 
-    }
-
-    echo "<td class='not-current'> <span>$next_day</span> </td>"; 
-    $col++;     
-
 }
 
-echo (" </tr></table>"); 
-echo ("</li>"); 
+$data .= '      </tr>';
+$data .= '  </table>';
+$data .= '</li>';
 
-} 
-if ( isset($_GET['year']) && isset($_GET['month']) ) { 
+echo $data;
 
-    $totalDays = getTotalDays($_GET['month'],$_GET['year']); 
-    showCalendar($_GET['year'],$_GET['month'],$totalDays); 
 
-} else {
-
-    $year = date('Y');
-    $month = date('m');
-
-    $totalDays = getTotalDays($month,$year); 
-    showCalendar($year,$month,$totalDays); 
-
-} 
-
-?> 
+?>

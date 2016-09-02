@@ -98,6 +98,7 @@ $(function(){
 	var _date = new Date();
 	var _year = _date.getFullYear();
 	var _month = _date.getMonth()+1;
+	var _day = _date.getDate();
 
 	function calendarSlider(start) {
 		var slider = $('#calendar');
@@ -193,6 +194,99 @@ $(function(){
 	}).done(function (data){
 		$('#calendar .li-next').html(data).removeClass('li-next').attr('data-month',_month+1);
 	});
+
+	// -------------------------- 주별 캘린더 -------------------------
+	$.ajax({
+		type: 'get',
+		url: '_calendar-week.php',
+		data: {
+			year: _year,
+			month: _month,
+			day: _day
+		}
+	}).done(function (data){
+		$('#calendarWeek').html(data);
+		$('.wrap-header h2').text(_month+'월');
+	});
+
+	$.ajax({
+		type: 'get',
+		url: '_calendar-week.php',
+		data: {
+			year: _year,
+			month: _month,
+			day: _day-7
+		}
+	}).done(function (data){
+		$('#calendarWeek').prepend(data);
+	});
+
+	$.ajax({
+		type: 'get',
+		url: '_calendar-week.php',
+		data: {
+			year: _year,
+			month: _month,
+			day: _day+7
+		}
+	}).done(function (data){
+		$('#calendarWeek').append(data);
+		weekCalendarSlider(1);
+	});
+
+	function weekCalendarSlider(start) {
+		var weekSlider = $('#calendarWeek');
+
+		weekSlider.bxSlider({
+			pager:false,
+			startSlide:start,
+			onSlideAfter: function(currentIndex, oldIndex, newIndex) {
+				$('.wrap-header h2').text(currentIndex.data('month')+'월');
+
+				var length = weekSlider.find('li').length - 3;
+
+				if (newIndex > oldIndex) {
+					if (newIndex == length) {
+						// 다음주 불러오기
+						i++;
+
+						$.ajax({
+							type: 'get',
+							url: '_calendar-week.php',
+							data: {
+								year: _year,
+								month: _month,
+								day: _day+(7*i)
+							}
+						}).done(function (data){
+							weekSlider.append(data).removeClass('add');
+							weekSlider.destroySlider();
+							weekCalendarSlider(length);
+						});
+					}
+				} else {
+					if (newIndex == 0) {
+						// 지난주 불러오기	
+						i2++;
+
+						$.ajax({
+							type: 'get',
+							url: '_calendar-week.php',
+							data: {
+								year: _year,
+								month: _month,
+								day: _day-(7*i2)
+							}
+						}).done(function (data){
+							weekSlider.prepend(data).removeClass('add');
+							weekSlider.destroySlider();
+							weekCalendarSlider(1);
+						});
+					}
+				}
+			}
+		});
+	}
 
 });
 

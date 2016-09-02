@@ -121,7 +121,7 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 
 #calendar {margin:20px 0 0;}
 #calendar li {height:527px; padding:0 32px;}
-#calendarWeek .li-week {height:115px;}
+#calendarWeek .li-week {height:115px; padding:0 32px;}
 #calendarWeek .calendar-week {height:115px;}
 #calendarWeek .calendar-week li {height:115px; padding:0 32px;}
 
