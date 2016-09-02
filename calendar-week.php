@@ -17,10 +17,7 @@
                     </tr>
                 </table>
             </h3>
-            <ul id="calendar">
-                <li class="li-prev"> </li> 
-                <li class="li-current"> </li>
-                <li class="li-next"> </li>
+            <ul id="calendarWeek">
             </ul>
         </div>   
 

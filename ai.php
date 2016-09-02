@@ -34,8 +34,8 @@
     </div>
     <div class="box-ai-shortcut">
         <ul>
-            <li class="li-task-delete"><a href="">바로 삭제</a></li>
-            <li class="li-task-confirm"><a href="">타스크 확정</a></li>
+            <li class="li-task-delete"><a href="#">바로 삭제</a></li>
+            <li class="li-task-confirm"><a href="#">타스크 확정</a></li>
         </ul>
     </div>
 </div>

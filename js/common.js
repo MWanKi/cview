@@ -36,22 +36,21 @@ $(document).on("click", ".li-task-delete", function(){
 
 	if (deletedTaskCount && !$this.hasClass('active')) {
 		
-		var toDelete = $('.wrap-ai input[type=checkbox]:checked');
-		var newDeletedTaskCount = toDelete.length;
+		var newDeletedTaskCount = $('.wrap-ai .deleted-task').length;
 		var deletedTask = toDelete.closest('.li-taskdata');
 
 		$this.addClass('active');
 
-		if (newDeletedTaskCount != deletedTaskCount) {
-			$('.wrap-ai .deleted-task').remove();	
-		}
+			if (newDeletedTaskCount != deletedTaskCount) {
+				$('.wrap-ai .deleted-task').remove();	
+			}
 
 		setTimeout(function(){
 			$this.removeClass('active');
 		},400);
 
 		deletedTask.removeClass('easing').slideUp(300).addClass('deleted-task');
-		$('.wrap-ai .txt-notice .count').text(newDeletedTaskCount);
+		$('.wrap-ai .txt-notice .count').text($('.wrap-ai .deleted-task').length);
 		$('.wrap-ai .box-notice').addClass('on');			
 
 		$('.wrap-ai .btn-rollback').click(function(){
@@ -89,7 +88,9 @@ $(document).on("click", ".li-task-confirm", function(){
 	return false;
 });
 
+// 캘린더 슬라이드
 $(function(){
+	// -- 월별 캘린더
 	var i = 1;
 	var j = 0;
 	var i2 = 1;
@@ -192,7 +193,6 @@ $(function(){
 	}).done(function (data){
 		$('#calendar .li-next').html(data).removeClass('li-next').attr('data-month',_month+1);
 	});
-
 
 });
 

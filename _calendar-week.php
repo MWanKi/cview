@@ -11,6 +11,7 @@ function showCalendar ($year, $month, $totalDays) {
 
     $firstDay = date ("w", mktime(0,0,0,$month,1,$year)); 
 
+    echo ("<li>");
     echo ("<table class='calendar'><tr>");
 
     $nowmonth_lastday = date("t"); 
@@ -30,25 +31,29 @@ for ($i = 0; $i < $firstDay; $i++) {
 
 for ($j = 1; $j <= $totalDays; $j++) { 
 
-        if ($col == 7) { 
-            echo ("</tr>"); 
+    if ($td > 0 && $td%7 == 0) {
+        echo ("</tr></table></li><li><table class='calendar'><tr>");
+    }
 
-            if ($j != $totalDays) { 
-                echo ("<tr>"); 
-                $tr++;
-            } 
-            $col = 0; 
-        }
+    if ($col == 7) { 
+        echo ("</tr>"); 
 
-        if ($j == date('d') && $month == date('m')) {
-            echo "<td class='today'> <span>$j</span> </td>"; 
-            $col++; 
-            $td++; 
-        } else {
-            echo "<td> <span>$j</span> </td>"; 
-            $col++; 
-            $td++;     
-        }
+        if ($j != $totalDays) { 
+            echo ("<tr>"); 
+            $tr++;
+        } 
+        $col = 0; 
+    }
+
+    if ($j == date('d') && $month == date('m')) {
+        echo "<td class='today'> <span>$j</span> </td>"; 
+        $col++; 
+        $td++; 
+    } else {
+        echo "<td> <span>$j</span> </td>"; 
+        $col++; 
+        $td++;     
+    }
         
 } 
 
@@ -70,6 +75,7 @@ for ($next_day = 1; $next_day < 43-$td; $next_day++) {
 }
 
 echo (" </tr></table>"); 
+echo ("</li>"); 
 
 } 
 if ( isset($_GET['year']) && isset($_GET['month']) ) { 

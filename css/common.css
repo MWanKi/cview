@@ -121,10 +121,23 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 
 #calendar {margin:20px 0 0;}
 #calendar li {height:527px; padding:0 32px;}
+#calendarWeek .li-week {height:115px;}
+#calendarWeek .calendar-week {height:115px;}
+#calendarWeek .calendar-week li {height:115px; padding:0 32px;}
+
 #calendar li table {width:100%;}
 #calendar li table td {width:82px; height:82px; vertical-align:middle; text-align:center;}
 #calendar li table td span {font-size:24px;}
 #calendar li table td.today span {width:80px; height:80px; line-height:80px; display:inline-block; border-radius:50%; background:#ededed;}
 #calendar li table td.not-current span {color:#cdcdcd;}
+
+#calendarWeek {margin:20px 0 0;}
+#calendarWeek li table {width:100%;}
+#calendarWeek li table td {width:82px; height:82px; vertical-align:middle; text-align:center;}
+#calendarWeek li table td span {font-size:24px;}
+#calendarWeek li table td.today span {width:80px; height:80px; line-height:80px; display:inline-block; border-radius:50%; background:#ededed;}
+#calendarWeek li table td.not-current span {color:#cdcdcd;}
+
+
 
 .btn-trans-week {z-index:1; position:absolute; top:-20px; left:50%; display:block; width:40px; height:40px; margin:0 0 0 -20px; background:url('../images/trans-week.png') center center no-repeat;}
