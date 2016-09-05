@@ -140,4 +140,5 @@ h1,h2,h3,h4,h5,h6, div, p, span, strong, em, td, a {font-family:'notosans'; font
 
 
 
+.btn-trans {z-index:1; position:absolute; top:-20px; left:50%; display:block; width:40px; height:40px; margin:0 0 0 -20px; background:url('../images/trans-month.png') center center no-repeat;}
 .btn-trans-week {z-index:1; position:absolute; top:-20px; left:50%; display:block; width:40px; height:40px; margin:0 0 0 -20px; background:url('../images/trans-week.png') center center no-repeat;}

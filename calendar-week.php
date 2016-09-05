@@ -22,7 +22,7 @@
         </div>   
 
         <div class="box-data">
-            <h3 class="head-data">오늘, 월 <a class="btn-trans-week" href="calendar-week.php"></a></h3>
+            <h3 class="head-data">오늘, 월 <a class="btn-trans" href="calendar.php"></a></h3>
             <ul class="ul-task">
                 <?php for ($i=0; $i < 4; $i++) { ?>
                 
